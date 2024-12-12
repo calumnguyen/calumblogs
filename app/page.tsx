@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
+import CountdownTimer from "./components/countDownTimer";
 
 const navigation = [
   { name: "Blogs", href: "/blogs" },
@@ -38,7 +39,16 @@ export default function Home() {
           Technology in Quick Service Enthusiast
         </h2>
       </div>
+       <div className="my-16 text-center animate-fade-in">
+        <h3 className="text-sm text-zinc-500 ">
+          <CountdownTimer />
+        </h3>
+      </div>
     </div>
+
+    
+
+    
   );
 
 }
