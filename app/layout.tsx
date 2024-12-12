@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Calum Nguyen",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://i.ibb.co/z75t3Mn/OG.png",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Calum Nguyen",
     card: "summary_large_image",
   },
   icons: {
