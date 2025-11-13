@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Lumina Trading LLC",
   description: "Drive innovation through agile, forward-thinking solutions that adapt to the fast-changing global market. Offering global visa services, travel insurance, and international connectivity solutions.",
-  url: "https://lumina-trading.com", // Update with your actual domain
+  url: "https://luminatradingllc.com",
   ogImage: "/seo/og-image.png",
   links: {
     twitter: "https://twitter.com/luminatrading", // Update with actual
