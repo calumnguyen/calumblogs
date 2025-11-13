@@ -26,12 +26,14 @@ export function SplineSceneBasic(): React.JSX.Element {
   const [active, setActive] = useState<MenuItem>('home');
   const router = useRouter();
 
-  const handleNavigation = (key: MenuItem) => {
+  const handleNavigation = (key: MenuItem): void => {
     setActive(key);
     if (key === 'services') {
       router.push('/services');
     } else if (key === 'home') {
       router.push('/');
+    } else {
+      router.push('/csuite');
     }
   };
   

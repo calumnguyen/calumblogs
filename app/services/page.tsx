@@ -14,12 +14,14 @@ export default function ServicesPage(): React.JSX.Element {
   const router = useRouter();
   const [active, setActive] = React.useState<'home' | 'services' | 'csuite'>('services');
 
-  const handleNavigation = (key: 'home' | 'services' | 'csuite') => {
+  const handleNavigation = (key: 'home' | 'services' | 'csuite'): void => {
     setActive(key);
     if (key === 'home') {
       router.push('/');
     } else if (key === 'services') {
       router.push('/services');
+    } else {
+      router.push('/csuite');
     }
   };
 
