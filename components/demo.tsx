@@ -6,6 +6,8 @@ import { GradientButton } from "@/components/ui/gradient-button"
 import { MenuBar } from "@/components/ui/animated-menu-bar";
 import { Footer } from '@/components/ui/footer-section';
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 type MenuItem = 'home' | 'services' | 'csuite';
 
@@ -22,6 +24,16 @@ export function DemoOne(): React.JSX.Element {
 
 export function SplineSceneBasic(): React.JSX.Element {
   const [active, setActive] = useState<MenuItem>('home');
+  const router = useRouter();
+
+  const handleNavigation = (key: MenuItem) => {
+    setActive(key);
+    if (key === 'services') {
+      router.push('/services');
+    } else if (key === 'home') {
+      router.push('/');
+    }
+  };
   
   return (
     <div className="relative flex min-h-screen flex-col">
@@ -46,7 +58,9 @@ export function SplineSceneBasic(): React.JSX.Element {
             Drive innovation through agile, forward-thinking solutions that adapt to the fast-changing global market.
             </p>
             <div className="mt-8">
-              <GradientButton variant='variant'>See our services</GradientButton>
+              <Link href="/services">
+                <GradientButton variant='variant'>See our services</GradientButton>
+              </Link>
             </div>
           </div>
 
@@ -61,7 +75,7 @@ export function SplineSceneBasic(): React.JSX.Element {
         
         {/* Menu Bar at bottom center */}
         <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center px-4">
-          <MenuBar active={active} onSelect={setActive} />
+          <MenuBar active={active} onSelect={handleNavigation} />
         </div>
       </div>
       <Footer />

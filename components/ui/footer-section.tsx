@@ -3,20 +3,27 @@
 import { useState, useEffect } from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { FrameIcon, MapPinIcon, PhoneIcon, MailIcon } from 'lucide-react';
+import { MapPinIcon, PhoneIcon, MailIcon } from 'lucide-react';
+import Image from 'next/image';
 
 export function Footer(): React.JSX.Element {
 	return (
 		<footer className="relative w-full flex flex-col items-center justify-center border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-8 md:py-10">
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 			<div className="w-full max-w-6xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-				{/* Left side - Logo and Copyright */}
-				<AnimatedContainer delay={0} className="flex flex-col items-start gap-3">
-					<FrameIcon className="size-7" />
-					<p className="text-muted-foreground text-xs md:text-sm">
-						© {new Date().getFullYear()} Lumina Trading LLC.<br className="md:hidden" /> All rights reserved.
-					</p>
-				</AnimatedContainer>
+			{/* Left side - Logo and Copyright */}
+			<AnimatedContainer delay={0} className="flex flex-col items-start gap-3">
+				<Image 
+					src="/icon-transparent.png" 
+					alt="Lumina Trading Logo" 
+					width={68} 
+					height={68}
+					className="size-12"
+				/>
+				<p className="text-muted-foreground text-xs md:text-sm">
+					© {new Date().getFullYear()} Lumina Trading LLC.<br className="md:hidden" /> All rights reserved.
+				</p>
+			</AnimatedContainer>
 
 				{/* Right side - Contact Information */}
 				<AnimatedContainer delay={0.1} className="flex flex-col gap-3 text-sm md:text-right">

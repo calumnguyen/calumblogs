@@ -209,6 +209,16 @@
   --muted-foreground: 240 3.8% 46.1%;
   --border: 240 5.9% 90%;
   --radius: 0.5rem;
+  
+  /* Aurora Background colors */
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+  --blue-300: #93c5fd;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --indigo-300: #a5b4fc;
+  --violet-200: #ddd6fe;
 }
 
 @theme inline {
@@ -298,8 +308,18 @@
   }
 }
 
+@keyframes aurora {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
 @theme {
   --animate-spotlight: animate-spotlight 2s ease 0.75s 1 forwards;
+  --animate-aurora: aurora 60s linear infinite;
 }
 
 body {
