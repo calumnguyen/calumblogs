@@ -10,7 +10,7 @@ export function Footer(): React.JSX.Element {
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 			<div className="w-full max-w-6xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 				{/* Left side - Logo and Copyright */}
-				<AnimatedContainer className="flex flex-col items-start gap-3">
+				<AnimatedContainer delay={0} className="flex flex-col items-start gap-3">
 					<FrameIcon className="size-7" />
 					<p className="text-muted-foreground text-xs md:text-sm">
 						© {new Date().getFullYear()} Lumina Trading LLC.<br className="md:hidden" /> All rights reserved.
@@ -18,7 +18,7 @@ export function Footer(): React.JSX.Element {
 				</AnimatedContainer>
 
 				{/* Right side - Contact Information */}
-				<AnimatedContainer delay={0.2} className="flex flex-col gap-3 text-sm md:text-right">
+				<AnimatedContainer delay={0.1} className="flex flex-col gap-3 text-sm md:text-right">
 					<div className="flex items-start gap-2 md:justify-end">
 						<MapPinIcon className="size-4 mt-0.5 flex-shrink-0 text-muted-foreground" />
 						<div className="text-muted-foreground">
@@ -63,8 +63,8 @@ function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationPr
 		<motion.div
 			initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
 			whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ delay, duration: 0.8 }}
+			viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
+			transition={{ delay, duration: 0.5, ease: "easeOut" }}
 			className={className}
 		>
 			{children}
