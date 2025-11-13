@@ -1,24 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lumina Trading
+
+A modern Next.js trading platform built with TypeScript, strict ESLint rules, and automated code quality checks.
+
+## Features
+
+- ⚡ **Next.js 16** with App Router
+- 🎨 **Tailwind CSS 4** for styling
+- 📘 **TypeScript** with strict configuration
+- ✅ **Strict ESLint** with TypeScript-specific rules
+- 🎣 **Husky** for Git hooks
+- 🚨 **Lint-staged** for pre-commit linting
+- 🔍 **Type checking** with strict TypeScript compiler options
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build the production application
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint on the codebase
+- `npm run lint:fix` - Run ESLint and automatically fix issues
+- `npm run type-check` - Run TypeScript type checking
+
+## Code Quality
+
+### ESLint Configuration
+
+This project uses a strict ESLint configuration with:
+
+- **TypeScript strict rules**: No explicit `any`, no unused variables, explicit function return types (warnings), etc.
+- **React strict rules**: Proper JSX key handling, exhaustive deps for hooks
+- **Code quality rules**: No console logs (except warn/error), prefer const, strict equality checks
+
+### Pre-commit Hooks
+
+Husky is configured to run lint-staged before each commit, which will:
+
+1. Automatically fix ESLint issues in staged files
+2. Run ESLint to check for any remaining issues
+3. Block commits if there are linting errors
+
+### TypeScript Configuration
+
+The TypeScript configuration includes strict options:
+
+- `strict: true` - Enable all strict type checking options
+- `noUncheckedIndexedAccess: true` - Ensure indexed access is safe
+- `noImplicitOverride: true` - Require explicit override keyword
+- `noUnusedLocals: true` - Report unused local variables
+- `noUnusedParameters: true` - Report unused parameters
+- `noFallthroughCasesInSwitch: true` - Ensure switch cases don't fall through
 
 ## Learn More
 
