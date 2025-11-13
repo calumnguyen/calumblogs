@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { FrameIcon, MapPinIcon, PhoneIcon, MailIcon } from 'lucide-react';
@@ -54,11 +55,25 @@ interface ViewAnimationProps {
 
 function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps): ReactNode {
 	const shouldReduceMotion = useReducedMotion();
+	const [isMobile, setIsMobile] = useState(false);
 
-	if (shouldReduceMotion) {
-		return children;
+	useEffect(() => {
+		// Check if device is mobile (width < 768px)
+		const checkMobile = (): void => {
+			setIsMobile(window.innerWidth < 768);
+		};
+		
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		return () => { window.removeEventListener('resize', checkMobile); };
+	}, []);
+
+	// No animation on mobile or if reduced motion is preferred
+	if (shouldReduceMotion || isMobile) {
+		return <div className={className}>{children}</div>;
 	}
 
+	// Full animation on desktop/laptop
 	return (
 		<motion.div
 			initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
