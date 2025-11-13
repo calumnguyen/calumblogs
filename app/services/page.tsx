@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Safari } from "@/components/ui/safari";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { siteConfig, generateBreadcrumbSchema, generateServiceSchema } from "@/lib/seo-config";
 
 export default function ServicesPage(): React.JSX.Element {
   const router = useRouter();
@@ -25,8 +26,32 @@ export default function ServicesPage(): React.JSX.Element {
     }
   };
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+  ]);
+
+  const servicesSchemas = siteConfig.services.map(service => 
+    generateServiceSchema(service)
+  );
+
   return (
     <div className="relative flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      {servicesSchemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
+      ))}
       <AuroraBackground className="bg-black dark:bg-black">
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           {/* Back button */}

@@ -1,0 +1,29 @@
+# robots.txt for Lumina Trading LLC
+# Allow all search engines to crawl and index the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://lumina-trading.com/sitemap.xml
+
+# Allow search engines to crawl images
+User-agent: Googlebot-Image
+Allow: /
+
+# Disallow crawling of any internal API routes if they exist
+Disallow: /api/
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Crawl delay (optional, adjust based on server capacity)
+# Crawl-delay: 1
+

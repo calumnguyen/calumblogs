@@ -8,6 +8,7 @@ import { Footer } from "@/components/ui/footer-section";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Github, Linkedin } from "lucide-react";
 import { GlassmorphismProfileCard } from "@/components/ui/profile-card-1";
+import { siteConfig, generateBreadcrumbSchema, generatePersonSchema } from "@/lib/seo-config";
 
 export default function CSuitePage(): React.JSX.Element {
   const router = useRouter();
@@ -24,8 +25,32 @@ export default function CSuitePage(): React.JSX.Element {
     }
   };
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Leadership Team", url: "/csuite" },
+  ]);
+
+  const personSchemas = siteConfig.authors.map(author =>
+    generatePersonSchema(author)
+  );
+
   return (
     <div className="relative flex min-h-screen flex-col dark">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      {personSchemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
+      ))}
       <AuroraBackground className="bg-black dark:bg-black">
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           {/* Back button */}
