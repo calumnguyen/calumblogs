@@ -17,7 +17,7 @@ export const Navigation: React.FC = () => {
 		});
 
 		observer.observe(ref.current);
-		return () => observer.disconnect();
+		return () => { observer.disconnect(); };
 	}, []);
 
 	return (

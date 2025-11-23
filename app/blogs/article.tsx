@@ -2,10 +2,10 @@ import type { Project } from "contentlayer/generated";
 import Link from "next/link";
 import { Eye } from "lucide-react";
 
-type Props = {
+interface Props {
 	project: Project;
 	views: number;
-};
+}
 
 export const Article: React.FC<Props> = ({ project, views }) => {
 	return (
@@ -38,4 +38,5 @@ export const Article: React.FC<Props> = ({ project, views }) => {
 		</Link>
 	);
 };
+
 

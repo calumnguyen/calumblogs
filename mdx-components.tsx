@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 
 // This file is required to use MDX in `app` directory.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useMDXComponents(components: any): any {
 	return {
 		// Allows customizing built-in components, e.g. to add styling.
@@ -15,4 +16,5 @@ export function useMDXComponents(components: any): any {
 		...components,
 	};
 }
+
 

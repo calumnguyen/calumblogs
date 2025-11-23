@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-function clsx(...args: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function clsx(...args: any[]): string {
 	return args.filter(Boolean).join(" ");
 }
 const components = {

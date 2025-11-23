@@ -132,15 +132,11 @@ const MenuDropdown: React.FC<MenuDropdownProps> = ({
             >
               <span className="flex items-center">
                 {item.label}
-                {item.hasSubmenu && (
-                  <span className="ml-2 text-xs opacity-70">▶</span>
-                )}
+                {item.hasSubmenu ? <span className="ml-2 text-xs opacity-70">▶</span> : null}
               </span>
-              {item.shortcut && (
-                <span className="text-xs text-white/60 ml-4">
+              {item.shortcut ? <span className="text-xs text-white/60 ml-4">
                   {item.shortcut}
-                </span>
-              )}
+                </span> : null}
             </div>
           );
         })}
@@ -166,7 +162,7 @@ const MacOSMenuBar: React.FC<MacOSMenuBarProps> = ({
   const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 });
 
   const appleLogoRef = useRef<HTMLDivElement>(null);
-  const menuRefs = useRef<{ [key: string]: HTMLSpanElement | null }>({});
+  const menuRefs = useRef<Record<string, HTMLSpanElement | null>>({});
 
   // Update clock every minute
   useEffect(() => {
@@ -183,7 +179,7 @@ const MacOSMenuBar: React.FC<MacOSMenuBarProps> = ({
     updateTime();
     const interval = setInterval(updateTime, 60000);
 
-    return () => clearInterval(interval);
+    return () => { clearInterval(interval); };
   }, []);
 
   const handleAppleMenuClick = useCallback(() => {
@@ -275,7 +271,7 @@ const MacOSMenuBar: React.FC<MacOSMenuBarProps> = ({
                   key={menu.label}
                   ref={(el) => { menuRefs.current[menu.label] = el; }}
                   className="text-white text-sm cursor-pointer hover:opacity-80 transition-opacity duration-150 select-none"
-                  onClick={() => handleMenuItemClick(menu.label)}
+                  onClick={() => { handleMenuItemClick(menu.label); }}
                 >
                   {menu.label}
                 </span>

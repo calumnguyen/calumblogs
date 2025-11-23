@@ -168,8 +168,7 @@ export function BudPalQuiz2(): React.JSX.Element {
                 </div>
                 
                 {/* User's response (if submitted and correct) */}
-                {isCorrect && (
-                  <div className="mb-3 sm:mb-4 text-right">
+                {isCorrect ? <div className="mb-3 sm:mb-4 text-right">
                     <div className="inline-block max-w-[80%] sm:max-w-xs lg:max-w-md px-3 sm:px-4 py-2 rounded-lg bg-green-500 text-white border-2 border-green-600">
                       <div className="text-xs sm:text-sm text-left">{emailInput}</div>
                       <div className="flex items-center gap-2 mt-1 text-xs opacity-75 justify-end">
@@ -179,8 +178,7 @@ export function BudPalQuiz2(): React.JSX.Element {
                         <span className="text-white">Calum</span>
                       </div>
                     </div>
-                  </div>
-                )}
+                  </div> : null}
                 
                 <div ref={messagesEndRef} />
               </div>
@@ -283,8 +281,7 @@ export function BudPalQuiz2(): React.JSX.Element {
         </div>
         
         {/* Success Message */}
-        {isCorrect && (
-          <div className="p-4 bg-green-50 border-t border-green-200">
+        {isCorrect ? <div className="p-4 bg-green-50 border-t border-green-200">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-green-100 rounded-full">
                 <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -296,8 +293,7 @@ export function BudPalQuiz2(): React.JSX.Element {
                 <p className="text-sm text-green-700">You correctly identified the support email address for {selectedOrigin.name}.</p>
               </div>
             </div>
-          </div>
-        )}
+          </div> : null}
       </div>
     </div>
   );

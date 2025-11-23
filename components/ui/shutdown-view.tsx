@@ -95,8 +95,7 @@ export function ShutdownView({ onShutdownComplete }: ShutdownViewProps) {
             />
             
             {/* Progress ring */}
-            {isHolding && (
-              <svg
+            {isHolding ? <svg
                 className="absolute inset-0 w-full h-full transform -rotate-90"
                 viewBox="0 0 100 100"
               >
@@ -120,16 +119,13 @@ export function ShutdownView({ onShutdownComplete }: ShutdownViewProps) {
                   strokeLinecap="round"
                   className="transition-all duration-50"
                 />
-              </svg>
-            )}
+              </svg> : null}
           </button>
         </div>
         
-        {isHolding && (
-          <p className="text-white/80 text-sm animate-pulse">
+        {isHolding ? <p className="text-white/80 text-sm animate-pulse">
             Hold to turn website back on
-          </p>
-        )}
+          </p> : null}
       </div>
     </div>
   );

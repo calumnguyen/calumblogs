@@ -8,13 +8,13 @@ import { ReportView } from "./view";
 export const revalidate = 60;
 export const dynamic = 'force-dynamic';
 
-type Props = {
+interface Props {
 	params: Promise<{
 		slug: string;
 	}>;
-};
+}
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
+export function generateStaticParams(): { slug: string }[] {
 	return allProjects
 		.filter((p) => p.published)
 		.map((p) => ({
@@ -22,7 +22,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 		}));
 }
 
-export default async function PostPage({ params }: Props) {
+export default async function PostPage({ params }: Props): Promise<React.JSX.Element> {
 	const { slug } = await params;
 	const project = allProjects.find((project) => project.slug === slug);
 

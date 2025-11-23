@@ -6,7 +6,7 @@ import { Article } from "./article";
 import { Eye } from "lucide-react";
 
 export const revalidate = 60;
-export default async function ProjectsPage() {
+export default function ProjectsPage(): React.JSX.Element {
 	// For now, we'll use 0 views since we don't have Redis set up
 	// You can add Redis later if needed
 	const views: Record<string, number> = {};
@@ -148,4 +148,5 @@ export default async function ProjectsPage() {
 		</div>
 	);
 }
+
 

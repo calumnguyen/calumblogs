@@ -21,8 +21,8 @@ export function SleepView({ onWakeUp }: SleepViewProps) {
     // Load the Lottie animation from the public folder
     fetch('/sleeping.json')
       .then((response) => response.json())
-      .then((data) => setAnimationData(data))
-      .catch((error) => console.error('Error loading Lottie animation:', error));
+      .then((data) => { setAnimationData(data); })
+      .catch((error) => { console.error('Error loading Lottie animation:', error); });
   }, []);
 
   useEffect(() => {

@@ -55,7 +55,7 @@ export function SystemPreferencesView({ selectedColor, onColorSelect }: SystemPr
           {COLOR_OPTIONS.map((color) => (
             <div key={color.id} className="flex flex-col items-center">
               <button
-                onClick={() => onColorSelect(color.id)}
+                onClick={() => { onColorSelect(color.id); }}
                 className={`relative w-24 h-24 rounded-full bg-gradient-to-br ${color.gradient} transition-all duration-300 hover:scale-110 ${
                   selectedColor === color.id
                     ? 'ring-4 ring-white ring-opacity-100 shadow-[0_0_20px_rgba(255,255,255,0.8)]'
@@ -63,9 +63,7 @@ export function SystemPreferencesView({ selectedColor, onColorSelect }: SystemPr
                 }`}
                 aria-label={`Select ${color.name} background`}
               >
-                {selectedColor === color.id && (
-                  <div className="absolute inset-0 rounded-full bg-white opacity-30 animate-pulse"></div>
-                )}
+                {selectedColor === color.id ? <div className="absolute inset-0 rounded-full bg-white opacity-30 animate-pulse"></div> : null}
               </button>
               <span className="text-white text-sm mt-3 font-medium">{color.name}</span>
             </div>

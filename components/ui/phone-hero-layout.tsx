@@ -16,7 +16,7 @@ interface PhoneHeroLayoutProps {
  * Mobile version - just shows the hero without MacBook frame.
  * Includes burger menu and mobile popup.
  */
-export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayoutProps) {
+export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayoutProps): React.JSX.Element {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
@@ -29,7 +29,7 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
       const timer = setTimeout(() => {
         setShowPopup(true);
       }, 1000);
-      return () => clearTimeout(timer);
+      return () => { clearTimeout(timer); };
     }
   }, []);
 
@@ -41,6 +41,7 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
   const menuItems = [
     { label: 'Education', path: '/edu', icon: GraduationCap },
     { label: 'Professional', path: '/professional', icon: Briefcase },
+    { label: 'Web Dev Projects', path: '/webdev', icon: Laptop },
     { label: 'Blogs', path: '/blogs', icon: BookOpen },
     { label: 'Contact', path: '/contact', icon: Mail },
   ];
@@ -56,7 +57,7 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
       
       {/* Burger Menu Button */}
       <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        onClick={() => { setIsMenuOpen(!isMenuOpen); }}
         className="fixed top-6 right-6 z-50 p-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
         aria-label="Toggle menu"
       >
@@ -69,8 +70,7 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
-        {isMenuOpen && (
-          <>
+        {isMenuOpen ? <>
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -78,7 +78,7 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => { setIsMenuOpen(false); }}
             />
             
             {/* Menu Panel */}
@@ -97,7 +97,7 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
                     return (
                       <button
                         key={item.path}
-                        onClick={() => handleMenuClick(item.path)}
+                        onClick={() => { handleMenuClick(item.path); }}
                         className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white transition-all duration-200 group"
                       >
                         <Icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
@@ -108,14 +108,12 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
                 </nav>
               </div>
             </motion.div>
-          </>
-        )}
+          </> : null}
       </AnimatePresence>
 
       {/* Mobile Popup */}
       <AnimatePresence>
-        {showPopup && (
-          <>
+        {showPopup ? <>
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -152,8 +150,7 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
                 </button>
               </div>
             </motion.div>
-          </>
-        )}
+          </> : null}
       </AnimatePresence>
     </div>
   );
