@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "Lumina Trading LLC",
-  description: "Drive innovation through agile, forward-thinking solutions that adapt to the fast-changing global market. Offering global visa services, travel insurance, and international connectivity solutions.",
-  url: "https://luminatradingllc.com",
+  name: "Calum Nguyen",
+  description: "Technology in Quick Service Enthusiast",
+  url: "https://calumnguyen.com",
   ogImage: "/seo/og-image.png",
   links: {
-    twitter: "https://twitter.com/luminatrading", // Update with actual
-    linkedin: "https://www.linkedin.com/company/lumina-trading", // Update with actual
+    twitter: "https://twitter.com/calumnguyen", // Update with actual
+    linkedin: "https://www.linkedin.com/in/calum-nguyen/",
   },
   keywords: [
     // Core Business Keywords
@@ -102,8 +102,8 @@ export const generateMetadata = {
   
   twitter: {
     card: "summary_large_image",
-    site: "@luminatrading", // Update with actual handle
-    creator: "@luminatrading",
+    site: "@calumnguyen", // Update with actual handle
+    creator: "@calumnguyen",
   },
   
   robots: {

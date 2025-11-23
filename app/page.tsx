@@ -1,12 +1,12 @@
-import { SplineSceneBasic } from "@/components/demo";
+import { HeroLayout } from "@/components/ui/hero-layout";
 import { siteConfig, generateOrganizationSchema, generateWebSiteSchema } from "@/lib/seo-config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Global Travel & Business Services",
+  title: "CALUM is all you need",
   description: siteConfig.description,
   openGraph: {
-    title: `${siteConfig.name} - Global Travel and Business Services`,
+    title: `${siteConfig.name} - CALUM is all you need`,
     description: siteConfig.description,
     url: siteConfig.url,
     images: [
@@ -14,12 +14,12 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} - Global Travel and Business Services`,
+        alt: `${siteConfig.name} - CALUM is all you need`,
       },
     ],
   },
   twitter: {
-    title: `${siteConfig.name} - Global Travel and Business Services`,
+    title: `${siteConfig.name} - CALUM is all you need`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
@@ -46,7 +46,7 @@ export default function Home(): React.JSX.Element {
           __html: JSON.stringify(websiteSchema),
         }}
       />
-      <SplineSceneBasic />
+      <HeroLayout appName="CALUM" />
     </>
   );
 }

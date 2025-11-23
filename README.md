@@ -1,6 +1,6 @@
-# Lumina Trading
+# Calum Blogs
 
-A modern Next.js trading platform built with TypeScript, strict ESLint rules, and automated code quality checks.
+A modern Next.js blog platform built with TypeScript, strict ESLint rules, and automated code quality checks.
 
 ## Features
 

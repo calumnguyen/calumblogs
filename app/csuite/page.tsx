@@ -12,14 +12,12 @@ import { siteConfig, generateBreadcrumbSchema, generatePersonSchema } from "@/li
 
 export default function CSuitePage(): React.JSX.Element {
   const router = useRouter();
-  const [active, setActive] = React.useState<'home' | 'services' | 'csuite'>('csuite');
+  const [active, setActive] = React.useState<'home' | 'csuite'>('csuite');
 
-  const handleNavigation = (key: 'home' | 'services' | 'csuite'): void => {
+  const handleNavigation = (key: 'home' | 'csuite'): void => {
     setActive(key);
     if (key === 'home') {
       router.push('/');
-    } else if (key === 'services') {
-      router.push('/services');
     } else {
       router.push('/csuite');
     }

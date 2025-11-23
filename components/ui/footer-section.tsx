@@ -15,13 +15,13 @@ export function Footer(): React.JSX.Element {
 			<AnimatedContainer delay={0} className="flex flex-col items-start gap-3">
 				<Image 
 					src="/icon-transparent.png" 
-					alt="Lumina Trading Logo" 
+					alt="Calum Nguyen Logo" 
 					width={68} 
 					height={68}
 					className="size-12"
 				/>
 				<p className="text-muted-foreground text-xs md:text-sm">
-					© {new Date().getFullYear()} Lumina Trading LLC.<br className="md:hidden" /> All rights reserved.
+					© {new Date().getFullYear()} Calum Nguyen.<br className="md:hidden" /> All rights reserved.
 				</p>
 			</AnimatedContainer>
 
@@ -42,11 +42,11 @@ export function Footer(): React.JSX.Element {
 						<span>+1 323 286 4541</span>
 					</a>
 					<a 
-						href="mailto:csuite@luminatradingllc.com" 
+						href="mailto:calumengee@gmail.com" 
 						className="flex items-center gap-2 md:justify-end text-muted-foreground hover:text-foreground transition-colors"
 					>
 						<MailIcon className="size-4 flex-shrink-0" />
-						<span>csuite@luminatradingllc.com</span>
+						<span>calumengee@gmail.com</span>
 					</a>
 				</AnimatedContainer>
 			</div>

@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface MenuBarProps {
-  active?: 'home' | 'services' | 'csuite';
-  onSelect?: (key: 'home' | 'services' | 'csuite') => void;
+  active?: 'home' | 'csuite';
+  onSelect?: (key: 'home' | 'csuite') => void;
 }
 
 const icons = {
@@ -118,8 +118,6 @@ export const MenuBar = ({ active = 'home', onSelect }: MenuBarProps): React.JSX.
   return (
   <nav className="flex items-center gap-2 bg-white dark:bg-zinc-950 p-2 rounded-2xl border border-zinc-200 dark:border-zinc-800 w-fit mx-auto transition-all duration-300">
       <IconButton icon={icons.home} label="Home" active={active === 'home'} onClick={() => onSelect?.('home')} />
-      <div className="w-px h-6 bg-zinc-200 dark:bg-zinc-800 mx-2" />
-      <IconButton icon={icons.services} label="Services" active={active === 'services'} onClick={() => onSelect?.('services')} />
       <div className="w-px h-6 bg-zinc-200 dark:bg-zinc-800 mx-2" />
       <IconButton icon={icons.csuite} label="C-Suite" active={active === 'csuite'} onClick={() => onSelect?.('csuite')} />
     </nav>
