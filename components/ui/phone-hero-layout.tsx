@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Menu, X, GraduationCap, Briefcase, BookOpen, Mail, Laptop } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { CalumIsAllYouNeed } from './animated-hero-section';
 
 interface PhoneHeroLayoutProps {
@@ -133,14 +134,20 @@ export function PhoneHeroLayout({ appName: _appName = 'CALUM' }: PhoneHeroLayout
               className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-md bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/20 z-[70]"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 p-3 bg-blue-100 rounded-full">
-                  <Laptop className="w-8 h-8 text-blue-600" />
+                <div className="mb-4 relative w-48 h-48 md:w-64 md:h-64">
+                  <Image
+                    src="/laptop.gif"
+                    alt="Laptop animation"
+                    fill
+                    className="object-contain"
+                    unoptimized
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Better Experience Available
+                  Optimized for Desktop
                 </h3>
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  The experience will be more amazing if you check it out on a Laptop or Computer
+                  For the best experience, we recommend viewing this site on a laptop or desktop computer.
                 </p>
                 <button
                   onClick={handleClosePopup}
